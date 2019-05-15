@@ -72,6 +72,34 @@ public class LinkedListWrapper <V> {
 	 * @param index
 	 */
 	public void deleteFromIndex(int index) {
+		int count = 0;
+		if (index == 0) {
+			Node<V> nextNode = firstNode.getNextNode();
+			if(nextNode != null) {
+				firstNode = nextNode;
+			} else {
+				firstNode = null;
+				System.out.println("This means that our Linked List is empty");
+			}
+		} else {
+			Node<V> prevNode = firstNode;
+			Node<V> nextNode = prevNode.getNextNode();
+			count++;
+			while (nextNode != null) {
+				if (count == index) {
+					Node<V> nextNode2 = nextNode.getNextNode();
+					prevNode.setNextNode(nextNode2);
+					break;
+				}
+				prevNode = nextNode;
+				nextNode = prevNode.getNextNode();
+				count ++;
+			}
+			if(nextNode == null && count != index) {
+				System.out.println("index is out of bound for value="+index);
+			}
+		}
+	
 		
 	}
 

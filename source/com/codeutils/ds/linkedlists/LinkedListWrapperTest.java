@@ -51,7 +51,10 @@ public class LinkedListWrapperTest {
 
 	@Test
 	public void testDeleteFromIndex() {
-		//fail("Not yet implemented");
+		linkedListWrapper.deleteFromIndex(0);
+		linkedListWrapper.deleteFromIndex(5);
+		// in order to iterate over a linked list we always start with the first node
+		linkedListWrapper.iterate(linkedListWrapper.getFirstNode()); 
 	}
 
 }
